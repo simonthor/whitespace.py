@@ -36,4 +36,4 @@ No one has actually asked questions, but I have answered some here before people
 ### Isn't this just a bad version of [whitespace](https://en.wikipedia.org/wiki/Whitespace_(programming_language))?
 Yes.
 ### What are the practical applications of this?
-None. However, I learned about argparser and Pathlib in the process, so it was a fun project for me at least!
+None. However, I learned about argparse and pathlib in the process, so it was a fun project for me at least!
