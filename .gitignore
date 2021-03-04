@@ -127,5 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#Project specfic
 .idea/
 test/
