@@ -15,12 +15,19 @@ with input_filename.open('r') as input_file, input_filename.with_suffix(output_f
     if args.mode == 'compile':
         for line in input_file:
             print(args.character)
+            # Take each letter in the line and convert it to a number using ord.
+            # Then multiply it with args.character to make a long string of the same character.
+            # line.rstrip is included to ignore the \n at the end of the line
             output_file.write(''.join(ord(decoded_char) * args.character + args.delimiter for decoded_char in line.rstrip('\n')))
             output_file.write('\n')
 
     elif args.mode == 'decompile':
         for line in input_file:
+            # Split the line into segments where there are characters that are not args.character
+            # Ignore \n at the end of the line
             encoded_characters = re.split(f'[^{args.character}]+', line.rstrip('\n'))
+            # Remove the '' that is created from re.split when a non-args.character is at the end of the line
             encoded_characters.remove('')
+            # chr is the opposite of ord, i.e. it converts a number to a letter.
             decoded_line = ''.join(chr(len(whitespace_chr)) for whitespace_chr in encoded_characters)
             output_file.write(decoded_line + '\n')
