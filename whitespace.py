@@ -15,12 +15,12 @@ with input_filename.open('r') as input_file, input_filename.with_suffix(output_f
     if args.mode == 'compile':
         for line in input_file:
             print(args.character)
-            output_file.write(''.join(ord(decoded_char) * args.character + args.delimiter for decoded_char in line.strip('\n')))
+            output_file.write(''.join(ord(decoded_char) * args.character + args.delimiter for decoded_char in line.rstrip('\n')))
             output_file.write('\n')
 
     elif args.mode == 'decompile':
         for line in input_file:
-            encoded_characters = re.split(f'[^{args.character}]+', line.strip('\n'))
+            encoded_characters = re.split(f'[^{args.character}]+', line.rstrip('\n'))
             encoded_characters.remove('')
             decoded_line = ''.join(chr(len(whitespace_chr)) for whitespace_chr in encoded_characters)
             output_file.write(decoded_line + '\n')
